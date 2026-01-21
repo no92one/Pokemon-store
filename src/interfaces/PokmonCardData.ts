@@ -4,4 +4,5 @@ export default interface PokemonCardData {
     name: string;
     images: Images;
     supertype: string;
+    flavorText?: string;
 }
