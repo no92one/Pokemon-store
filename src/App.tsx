@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import type PokemonCardData from "./interfaces/PokmonCardData.ts";
 
 export default function App() {
-  const [pokemonCards, setPokemonCards] = useState([])
+  const [pokemonCards, setPokemonCards] = useState<PokemonCardData[]>([])
 
   async function getPokemonCardsData() {
     const response = await fetch("/pokemonCards.json")
@@ -24,6 +25,7 @@ export default function App() {
       {pokemonCards.map( (card, index) => {
         return <section key={index}>
           <p>{card.name}</p>
+          <img src={card.images.small} alt="No image" />
         </section>
       })}
     </>;
